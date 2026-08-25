@@ -1,0 +1,42 @@
+"""
+该文件定义了小车的硬件接口配置
+命名都以大写加下划线的形式定义
+"""
+
+
+
+#车轮信息
+WHEEL_DIAMETER = None    #车轮直径mm
+WHEEL_BASE = None    #车轮间距mm
+
+#电机型号和参数
+MOTOR_DRIVER = "TB6612"
+MOTOR_FREQUENCY = 1000    #电机频率
+MOTOR_MAX_DUTY = 100  #电机最大占空比
+MOTOR_STBY = 25    #电机使能引脚
+
+#定义左轮的PWM和AIN1、AIN2的GPIO口
+WHEEL_LEFT_PWM = 12
+WHEEL_LEFT_AIN1 = 5
+WHEEL_LEFT_AIN2 = 6
+
+#定义右轮的PWM和AIN1、AIN2的GPIO口
+WHEEL_RIGHT_PWM = 18
+WHEEL_RIGHT_AIN1 = 23
+WHEEL_RIGHT_AIN2 = 24
+
+#左编码器A、B相
+ENCODER_LEFT_A = 16
+ENCODER_LEFT_B = 20
+#右编码器A、B相
+ENCODER_RIGHT_A = 26
+ENCODER_RIGHT_B = 21
+
+
+
+#定义小车舵机驱动的GPIO口
+SERVO_PWM = 17
+SERVO_FREQUENCY = 50    #舵机频率
+SERVO_MAX_PULSE_WIDTH = 2500    #舵机最大脉宽
+SERVO_MIN_PULSE_WIDTH = 500     #舵机最小脉宽
+
