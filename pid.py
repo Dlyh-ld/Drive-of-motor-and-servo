@@ -21,3 +21,4 @@ class PID:
         self.previous_error = error
         self.has_prev = True     # 从下一次起，就有"上次误差"了
         return p + i + d
+

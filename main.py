@@ -24,10 +24,13 @@ pid_left = pid.PID(confing.SPEED_KP, confing.SPEED_KI, confing.SPEED_KD)
 pid_right = pid.PID(confing.SPEED_KP, confing.SPEED_KI, confing.SPEED_KD) 
 heading_pid = pid.PID(confing.HEADING_KP, confing.HEADING_KI, confing.HEADING_KD)  
 
-TARGET = confing.TARGET_SPEED   # 目标速度 (单位：脉冲数/秒)
 dt = 1.0 / confing.CONTROL_LOOP_HZ  # 控制周期，单位秒
 prev_l = encoder_left.count  # 上一时刻左轮编码器计数
 prev_r = encoder_right.count  # 上一时刻右轮编码器计数
+
+"""
+#航向环循环
+TARGET = confing.TARGET_SPEED   # 目标速度 (单位：脉冲数/秒)
 heading = 0  # 未偏航角度
 
 
@@ -58,7 +61,7 @@ while True:
     motor_right.set_speed(pid_output_r)  # 设置右轮电机速度
     
     time.sleep(dt)  # 等待下一个控制周期
-
+"""
 
 
 
