@@ -3,10 +3,11 @@ import confing
 import encoder
 import motor
 import pid
-import servo
+from servo import Servo
 import time
 from yolo import dets
 from decide import decide
+
 
 
 
@@ -23,14 +24,14 @@ encoder_right = encoder.Encoder(pi, confing.ENCODER_RIGHT_A, confing.ENCODER_RIG
 pid_left = pid.PID(confing.SPEED_KP, confing.SPEED_KI, confing.SPEED_KD)
 pid_right = pid.PID(confing.SPEED_KP, confing.SPEED_KI, confing.SPEED_KD) 
 heading_pid = pid.PID(confing.HEADING_KP, confing.HEADING_KI, confing.HEADING_KD)  
+#舵机初始化
+ser = Servo(pi)
 
+"""
+TARGET = confing.TARGET_SPEED   # 目标速度 (单位：脉冲数/秒)
 dt = 1.0 / confing.CONTROL_LOOP_HZ  # 控制周期，单位秒
 prev_l = encoder_left.count  # 上一时刻左轮编码器计数
 prev_r = encoder_right.count  # 上一时刻右轮编码器计数
-
-"""
-#航向环循环
-TARGET = confing.TARGET_SPEED   # 目标速度 (单位：脉冲数/秒)
 heading = 0  # 未偏航角度
 
 
@@ -63,8 +64,19 @@ while True:
     time.sleep(dt)  # 等待下一个控制周期
 """
 
+dt = 1.0 / confing.CONTROL_LOOP_HZ  # 控制周期，单位秒
 
-
+while True:
+    left, right = decide(dets)
+    motor_left.set_speed(left)
+    motor_right.set_speed(right)
+    time.sleep(dt)  
+    target = max(dets, key=lambda d: d["conf"])                                     
+    if target["cy"] > confing.BRAKE_CY:
+        motor_left.brake()
+        motor_right.brake()
+        ser.set_angle(0)      # 停下来了，舵机放下
+        break
 
 
 
