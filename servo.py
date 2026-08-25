@@ -17,7 +17,7 @@ class Servo:
         self.pi = pi
         self.pi.set_mode(confing.SERVO_PWM, pigpio.OUTPUT)
         self.pi.set_PWM_frequency(confing.SERVO_PWM, confing.SERVO_FREQUENCY)
-        self.pi.set_servo_pulsewidth(confing.SERVO_PWM, 0)  # 初始化舵机为0度
+        self.pi.set_servo_pulsewidth(confing.SERVO_PWM, 90)  # 初始化舵机为90度
 
     def set_angle(self, angle):
         angle = max(0, min(90, angle)) # 限制角度在0-90度之间
