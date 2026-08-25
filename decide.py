@@ -1,4 +1,4 @@
-
+import confing
 
 DANGER = "blue_danger"
 
@@ -16,13 +16,13 @@ def decide(dets):
         target = max(dets, key=lambda d: d["conf"])
         error = target["cx"] - 320
         diff = 0.2 * error
-        return 30 - diff, 30 + diff
+        return confing.TARGET_SPEED - diff, confing.TARGET_SPEED + diff
 
     #找到目标，向目标移动
     target = max(safe, key=lambda d: d["conf"])
     error = target["cx"] - 320
     diff = 0.2 * error
-    return 30 + diff, 30 - diff
+    return confing.TARGET_SPEED + diff, confing.TARGET_SPEED - diff
 
 
 
