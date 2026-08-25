@@ -40,3 +40,22 @@ SERVO_FREQUENCY = 50    #舵机频率
 SERVO_MAX_PULSE_WIDTH = 2500    #舵机最大脉宽
 SERVO_MIN_PULSE_WIDTH = 500     #舵机最小脉宽
 
+# 编码器机械参数（航向计算用）
+ENCODER_PPR = 13          # TODO: 编码器盘每转脉冲数(线数)，查型号或标定
+ENCODER_GEAR_RATIO = 30   # TODO: 减速比 = 电机转数 / 轮子转数
+
+# 舵机角度范围
+SERVO_MIN_ANGLE = 0
+SERVO_MAX_ANGLE = 90
+
+# 控制参数
+CONTROL_LOOP_HZ = 50      # 每秒执行几次 PID（50 = 20ms 一次）
+TARGET_SPEED = 0.3        # 目标速度 m/s，先慢一点
+
+# PID 参数（占位，后面实测再调）
+SPEED_KP = 1.0
+SPEED_KI = 0.05
+SPEED_KD = 0.0
+HEADING_KP = 2.0
+HEADING_KI = 0.0
+HEADING_KD = 0.0
