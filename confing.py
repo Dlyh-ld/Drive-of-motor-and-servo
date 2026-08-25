@@ -52,7 +52,7 @@ SERVO_MAX_ANGLE = 90
 
 # 控制参数
 CONTROL_LOOP_HZ = 50      # 每秒执行几次 PID（50 = 20ms 一次）
-TARGET_SPEED = 0.3        # 目标速度 m/s，先慢一点
+TARGET_SPEED = 2000        # 目标速度 (单位：脉冲数/秒)，先慢一点
 
 # PID 参数（占位，后面实测再调）
 SPEED_KP = 1.0
