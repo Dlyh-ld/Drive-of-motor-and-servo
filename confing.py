@@ -62,3 +62,5 @@ HEADING_KP = 2.0
 HEADING_KI = 0.0
 HEADING_KD = 0.0
 
+#刹车时cy的值
+BRAKE_CY = None
